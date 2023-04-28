@@ -19,13 +19,13 @@ include "menu.php";
         <div id="carouselExample" class="carousel slide carousel-fade">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/baner01.png" class="d-block w-100" alt="...">
+                    <img src="img/GOW.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/baner02.png" class="d-block w-100" alt="...">
+                    <img src="img/FIFA23.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/baner03.png" class="d-block w-100" alt="...">
+                    <img src="img/cult-of-the-lamb.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -51,74 +51,64 @@ include "menu.php";
     </div>
     <div class="row">
         <?php
-        for ($i = 0; $i < 8; $i++) :
+        $servidor_bd = "127.0.0.1";
+        $usuario_bd = "root";
+        $senha_bd = "";
+        $banco_de_dados = "delivery_jogos_novo";
+
+        $conexao = mysqli_connect($servidor_bd, $usuario_bd, $senha_bd, $banco_de_dados);
+
+        $sqlbuscar = "select * from jogo";
+
+        $todos_os_jogos = mysqli_query($conexao, $sqlbuscar);
+
+        while ($um_jogo = mysqli_fetch_assoc($todos_os_jogos)) :
         ?>
-            <div class="col-3 text-center" mb-4>
-                <img src="img/forza.jpg" alt="Forza 5" class="img-fluid">
-                <h5>Forza Horizon 5</h2>
-                    <a href="nomedojogo.php" class="btn btn-primary">Ver Mais</a>
+            <div class="col-3 text-center mt-4">
+                <img src="<?php echo $um_jogo["foto"]; ?>" class="img-fluid"> <!-- style="object-fit: cover; height: 150px; width: 100%; object-position: top center;" -->
+
+                <h5 class="mt-3 mb-3"><?php echo $um_jogo["titulo"]; ?></h5>
+                <h6 class="mt-3 mb-3"><?php echo $um_jogo["categoria"]; ?></h6>
+                <a href="<?php echo $um_jogo["video"]; ?>" class="btn btn-outline-primary">VER MAIS</a>
+
             </div>
         <?php
-        endfor;
+        endwhile;
         ?>
+    </div>
 
-
-        <!-- <div class="col-3 text-center">
-            <img src="img/forza.jpg" alt="Forza 5" class="img-fluid">
-            <h2>Forza Horizon 5</h2>
-            <a href="nomedojogo.php" class="btn btn-primary">Ver Mais</a>
-        </div>
-
-        <div class="col-3 text-center">
-            <img src="img/cod2.jpg" alt="Call of Duty 2" class="img-fluid">
-            <h2>Call of Duty Modern Warfare 2</h2>
-            <a href="nomedojogo.php" class="btn btn-primary">Ver Mais</a>
-        </div>
-
-        <div class="col-3 text-center">
-            <img src="img/elden-ring.jpg" alt="Elden RIng" class="img-fluid">
-            <h2>Elden Ring</h2>
-            <a href="nomedojogo.php" class="btn btn-primary">Ver Mais</a>
-        </div>
-
-        <div class="col-3 text-center">
-            <img src="img/farcry6.png" alt="Far Cry 6" class="img-fluid" >
-            <h2>Far Cry 6</h2>
-            <a href="nomedojogo.php" class="btn btn-primary">Ver Mais</a>
-        </div>
-    </div> -->
-        <div>
-            <div class="row text-center mt-5">
-                <div class="col-12">
-                    <h2>Entre em Contato</h2>
-                </div>
-                <div class="col-12">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod non, quibusdam exercitationem rem error dolor, iure explicabo ad ut quasi hic? At atque maiores nulla vero. Atque harum possimus fuga!. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quia, impedit mollitia vero labore soluta ipsam officiis natus reprehenderit, eum pariatur doloremque, quibusdam delectus odit est illo eaque nihil perferendis.</p>
-                </div>
+    <div>
+        <div class="row text-center mt-5">
+            <div class="col-12">
+                <h2>Entre em Contato</h2>
             </div>
-            <div class="row">
-                <form action="inserir-contato.php" method="post">
-                    <div class="col">
-                        <div class="mb-2">
-                            <input type="text" class="form-control" name="nome" placeholder="Nome">
-                        </div>
-                        <div class="mb-2">
-                            <input type="tel" class="form-control" name="telefone" placeholder="Telefone">
-                        </div>
-                        <div class="mb-2">
-                            <textarea class="form-control" name="duvidas" rows="4" placeholder="Dúvida"></textarea>
-                        </div>
-                        <div class="mb-2 text-center">
-                            <button type="submit" class="btn btn-success w-25">Enviar</button>
-
-                        </div>
+            <div class="col-12">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod non, quibusdam exercitationem rem error dolor, iure explicabo ad ut quasi hic? At atque maiores nulla vero. Atque harum possimus fuga!. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quia, impedit mollitia vero labore soluta ipsam officiis natus reprehenderit, eum pariatur doloremque, quibusdam delectus odit est illo eaque nihil perferendis.</p>
+            </div>
+        </div>
+        <div class="row">
+            <form action="inserir-contato.php" method="post">
+                <div class="col">
+                    <div class="mb-2">
+                        <input type="text" class="form-control" name="nome" placeholder="Nome">
                     </div>
-                </form>
-            </div>
+                    <div class="mb-2">
+                        <input type="tel" class="form-control" name="telefone" placeholder="Telefone">
+                    </div>
+                    <div class="mb-2">
+                        <textarea class="form-control" name="duvidas" rows="4" placeholder="Dúvida"></textarea>
+                    </div>
+                    <div class="mb-2 text-center">
+                        <button type="submit" class="btn btn-success w-25">Enviar</button>
+
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>
