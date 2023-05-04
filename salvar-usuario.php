@@ -1,0 +1,17 @@
+<?php
+
+$nome = $_POST["nome"];
+$email = $_POST["email"];
+$senha = $_POST["senha"];
+
+include "conexao.php";
+
+$sql_inserir_usuario = "INSERT INTO `usuario`(`id`, `nome`, `senha`, `email`) VALUES ('','$nome', '$senha', '$email')";
+
+$um_usuario = mysqli_query($conexao, $sql_inserir_usuario);
+
+mysqli_close($conexao);
+
+header("location:novo-usuario.php?msg=sucesso");
+
+?>

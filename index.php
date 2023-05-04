@@ -22,7 +22,7 @@ include "menu.php";
                     <img src="img/GOW.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/FIFA23.jpg" class="d-block w-100" alt="...">
+                    <img src="img/apex.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="img/cult-of-the-lamb.jpg" class="d-block w-100" alt="...">
@@ -51,13 +51,9 @@ include "menu.php";
     </div>
     <div class="row">
         <?php
-        $servidor_bd = "127.0.0.1";
-        $usuario_bd = "root";
-        $senha_bd = "";
-        $banco_de_dados = "delivery_jogos_novo";
 
-        $conexao = mysqli_connect($servidor_bd, $usuario_bd, $senha_bd, $banco_de_dados);
-
+        include "conexao.php";
+        
         $sqlbuscar = "select * from jogo";
 
         $todos_os_jogos = mysqli_query($conexao, $sqlbuscar);
