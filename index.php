@@ -53,20 +53,26 @@ include "menu.php";
         <?php
 
         include "conexao.php";
-        
+
         $sqlbuscar = "select * from jogo";
 
         $todos_os_jogos = mysqli_query($conexao, $sqlbuscar);
 
         while ($um_jogo = mysqli_fetch_assoc($todos_os_jogos)) :
         ?>
-            <div class="col-3 text-center mt-4">
-                <img src="<?php echo $um_jogo["foto"]; ?>" class="img-fluid"> <!-- style="object-fit: cover; height: 150px; width: 100%; object-position: top center;" -->
-
-                <h5 class="mt-3 mb-3"><?php echo $um_jogo["titulo"]; ?></h5>
-                <h6 class="mt-3 mb-3"><?php echo $um_jogo["categoria"]; ?></h6>
+            <div class="col-md-3 text-center mb-4">
+                <img src="<?php echo $um_jogo["foto"]; ?>" class="img-fluid" style="object-fit: cover; height: 150px; width: 100% object-position top center;">
+                <h5 class="class=" mt-3 mb-3><?php echo $um_jogo["titulo"]; ?></h5>
+                <?php
+                $cor = "";
+                if (strtoupper($um_jogo["categoria"]) == "TERROR") {
+                    $cor = "red";
+                } else if (strtoupper($um_jogo["categoria"]) == "LIVRE") {
+                    $cor = "green";
+                }
+                ?>
+                <h6 class="mt-3 mb-3" style="color:<?php echo $cor; ?>"><?php echo $um_jogo["categoria"]; ?></h6>
                 <a href="<?php echo $um_jogo["video"]; ?>" class="btn btn-outline-primary">VER MAIS</a>
-
             </div>
         <?php
         endwhile;
