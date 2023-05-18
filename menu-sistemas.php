@@ -9,13 +9,13 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" herf="listar-jogos.php">Jogos</a>
+                    <a class="nav-link" href="listar-jogos.php">Jogos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" herf="listar-usuario.php">Usuários</a>
+                    <a class="nav-link" href="listar-usuario.php">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" herf="index.php"><b>SAIR</b></a>
+                    <a class="nav-link" href="index.php"><b>SAIR</b></a>
                 </li>
             </ul>
         </div>

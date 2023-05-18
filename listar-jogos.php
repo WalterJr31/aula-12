@@ -37,6 +37,11 @@ include "menu-sistemas.php";
                         <td><?php echo $um_jogo["categoria"]; ?> </td>
                         <td>
                             <a class="link-underline link-underline-opacity-0" href="excluir-jogos.php?id=<?php echo $um_jogo["id"]; ?>">❌</a>
+
+                            <a class="link-underline link-underline-opacity-0" href="ver-jogo.php?id=<?php echo $um_jogo["id"]; ?>"><img src="img/eye.png" alt="ver"></a>
+
+                            <a class="link-underline link-underline-opacity-0" href="editar-jogos.php?id=<?php echo $um_jogo["id"]; ?>">🖌</a>
+                            
                         </td>
                     </tr>
                 <?php
